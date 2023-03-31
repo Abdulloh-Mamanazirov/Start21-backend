@@ -25,7 +25,7 @@ const registerUser = (req,res) =>{
         "/",
         new Date().getFullYear(),
         " ",
-        new Date().getHours(),
+        new Date().getHours()+5,
         ":",
         new Date().getMinutes(),
       ].join(""),
