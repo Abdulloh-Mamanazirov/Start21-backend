@@ -14,12 +14,22 @@ const oneStudent = (req,res) =>{
 const registerUser = (req,res) =>{
     const {name, phone, course} = req.body
     students.push({
-        id: uuid.v4(),
-        name,
-        phone,
-        course,
-        date: new Date().toLocaleString()
-    })
+      id: uuid.v4(),
+      name,
+      phone,
+      course,
+      date: [
+        new Date().getDate(),
+        "/",
+        new Date().getMonth() + 1,
+        "/",
+        new Date().getFullYear(),
+        " ",
+        new Date().getHours(),
+        ":",
+        new Date().getMinutes(),
+      ].join(""),
+    });
     writeFile("registered_students.json", students)
     return res.send(JSON.stringify("Registereds Successfully"))
 }
