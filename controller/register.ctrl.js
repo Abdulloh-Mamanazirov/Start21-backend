@@ -33,9 +33,18 @@ const registerUser = (req,res) =>{
     writeFile("registered_students.json", students)
     return res.send(JSON.stringify("Registereds Successfully"))
 }
+const deleteStudent = (req, res) => {
+  const { id } = req.params;
+  students.forEach((s,ind) => {
+      if(s.id === id) students.splice(ind,1)
+  });
+  writeFile("registered_students.json", students)
+  return res.send(JSON.stringify("Removed!"));
+};
 
 module.exports = {
     allStudents,
     oneStudent,
-    registerUser
+    registerUser,
+    deleteStudent
 }
