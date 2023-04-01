@@ -1,13 +1,24 @@
-GET  http://localhost:2100/api/users
-Content-Type: "application/json"
+###
+GET  http://localhost:2100/api/all
+
+###
+GET  http://localhost:2100/api/teachers
 
 ###
 POST  http://localhost:2100/api/register
-Content-Type: "application/json"
 
 {
 "name": "asas",
 "phone": "+99886987983",
 "course": "ielts",
 "date": "21/03/2022"
+}
+
+###
+POST  http://localhost:2100/api/addTeacher
+
+{
+"name": "asas",
+"phone": "+99886987983",
+"course": "ielts",
 }
