@@ -8,58 +8,11 @@
         "num": "1"
     },
     {
-        "id": "888ae602-f0ac-48ab-ab3f-912e60b81681",
-        "num": 6,
-        "age": "Not Information"
-    },
-    {
-        "id": "308996b2-6db2-4349-9e2c-5ba9e618207d",
-        "num": 3,
-        "age": "Not Information"
-    },
-    {
-        "id": "0f3e9553-1f4d-4359-98fd-531c0f30dc5a",
-        "num": 4,
-        "age": "Not Information"
-    },
-    {
-        "id": "dca34550-caa1-4018-81d5-70b4f6f1eb0c",
-        "num": 5,
-        "age": "Not Information"
-    },
-    {
-        "id": "57b8465d-ad16-43ce-8f5a-ef0812430b1f",
-        "num": 6,
-        "age": "Not Information"
-    },
-    {
-        "id": "6eac4e08-5361-42be-ae87-713e6cd092ea",
-        "num": 7,
-        "age": "Not Information"
-    },
-    {
-        "id": "2f12af74-5bd7-4c1c-8a5a-f8d239c76198",
-        "num": 8,
-        "age": "Not Information"
-    },
-    {
-        "id": "d02520fb-f32c-4262-aa6f-5743680c83b0",
-        "num": 9,
-        "age": "Not Information"
-    },
-    {
-        "id": "fa0abe5e-0505-4ab0-914d-cc8e4175b4e3",
-        "num": 10,
-        "age": "Not Information"
-    },
-    {
-        "id": "0bd6f9db-ddef-4271-a590-aa60a383f53f",
-        "num": 11,
-        "age": "Not Information"
-    },
-    {
-        "id": "70a18208-761f-4162-b15d-0952adda3ebb",
-        "num": 12,
+        "id": "e505ac7d-d3b7-4f04-a95a-7100858795f8",
+        "num": 13,
+        "name": "shelby",
+        "course": "IELTS",
+        "phone": "+998949878585",
         "age": "Not Information"
     }
 ]

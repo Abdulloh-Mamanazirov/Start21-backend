@@ -16,9 +16,10 @@ POST  http://localhost:2100/api/register
 
 ###
 POST  http://localhost:2100/api/addTeacher
+Content-Type:"application/json"
 
 {
-"name": "asas",
-"phone": "+99886987983",
-"course": "ielts",
+    "name": "John",
+    "phone": "+99886987983",
+    "course": "ielts",
 }

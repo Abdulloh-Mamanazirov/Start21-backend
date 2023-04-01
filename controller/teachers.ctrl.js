@@ -29,4 +29,14 @@ const addTeacher = (req,res)=>{
     return res.send(JSON.stringify("Added Successfully"));
 }
 
-module.exports = {getTeachers,getOneTeacher, addTeacher}
+const deleteTeacher = (req,res)=>{
+    let {id} = req.params
+    teachers.forEach((t,i) => {
+        if(t.id === id) teachers.splice(i,1)
+    });
+    writeFile("teachers.json", teachers)
+
+    res.send(JSON.stringify("Teacher Removed!"))
+}
+
+module.exports = { getTeachers, getOneTeacher, addTeacher, deleteTeacher };
