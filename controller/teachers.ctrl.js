@@ -21,6 +21,7 @@ const addTeacher = (req,res)=>{
         num:teachers.length+1,
         name,
         course,
+        levels,
         phone,
         age: !!age ? age : "Not Information"
     })

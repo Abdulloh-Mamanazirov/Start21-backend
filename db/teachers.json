@@ -3,15 +3,17 @@
         "id": "1",
         "name": "Harry Potter",
         "phone": "+998978946558",
-        "course": "ielts",
+        "course": ["ielts"],
+        "levels": ["1","2"],
         "age": "24",
-        "num": "1"
+        "num": 1
     },
     {
         "id": "e505ac7d-d3b7-4f04-a95a-7100858795f8",
         "num": 13,
         "name": "shelby",
-        "course": "IELTS",
+        "course": ["IELTS"],
+        "levels": ["1","2"],
         "phone": "+998949878585",
         "age": "Not Information"
     }
