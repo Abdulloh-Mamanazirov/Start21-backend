@@ -14,14 +14,14 @@ const getOneTeacher = (req,res)=>{
 }
 
 const addTeacher = (req,res)=>{
-    const {name,age,course,phone} = req.body
+    const {name,age,course,phone,levels} = req.body
     console.log(req.body);
     teachers.push({
         id:uuid.v4(),
         num:teachers.length+1,
         name,
         course,
-        levels,
+        levels: !!levels ? levels : "No Information",
         phone,
         age: !!age ? age : "Not Information"
     })
