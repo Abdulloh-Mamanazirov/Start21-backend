@@ -40,4 +40,25 @@ const deleteTeacher = (req,res)=>{
     res.send(JSON.stringify("Teacher Removed!"))
 }
 
-module.exports = { getTeachers, getOneTeacher, addTeacher, deleteTeacher };
+const updateTeacher = (req,res)=>{
+    let {id} = req.params
+    let {name, course, levels,phone,age} = req.body
+
+    let foundedTeacher = teachers.find(t=>t.id === id)
+    
+    teachers.forEach((t) => {
+        if(t.id === id) {
+            foundedTeacher.id = foundedTeacher.id;
+            foundedTeacher.name = !!name ? name : foundedTeacher.name;
+            foundedTeacher.course = !!course ? course : foundedTeacher.course;
+            foundedTeacher.levels = !!levels ? levels : foundedTeacher.levels;
+            foundedTeacher.phone = !!phone ? phone : foundedTeacher.phone;
+            foundedTeacher.age = !!age ? age : foundedTeacher.age;
+        }
+    });
+    writeFile("teachers.json", teachers)
+
+    res.send(JSON.stringify("Teacher Updated!"))
+}
+
+module.exports = { getTeachers, getOneTeacher, addTeacher, deleteTeacher, updateTeacher };
