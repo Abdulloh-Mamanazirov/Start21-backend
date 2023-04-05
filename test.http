@@ -5,6 +5,9 @@ GET  http://localhost:2100/api/all
 GET  http://localhost:2100/api/teachers
 
 ###
+GET  http://localhost:2100/api/news
+
+###
 POST  http://localhost:2100/api/register
 
 {
@@ -22,4 +25,13 @@ Content-Type:"application/json"
     "name": "John",
     "phone": "+99886987983",
     "course": "ielts",
+}
+
+###
+POST  http://localhost:2100/api/createNews
+Content-Type:"application/json"
+
+{
+    "title": "Mercedes-Benz",
+    "text": "Mercedes-Benz is a company that produces professioanl sports cars"
 }
