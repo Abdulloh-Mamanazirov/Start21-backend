@@ -1,45 +1,40 @@
-const uuid  = require("uuid")
-const { readFile, writeFile } = require("../fs_api/fs.js")
+const client = require("../utils/connection")
 
-let students = readFile("registered_students.json")
-
-const allStudents = (req,res) =>{
-    return res.send(JSON.stringify(students))
+const allStudents = async (_,res) =>{
+    let students = await client.query( `select * from registered` )
+    return res.status(200).json(students.rows)
 }
-const oneStudent = (req,res) =>{
+const oneStudent = async (req,res) =>{
     const {id} = req.params
-    let student = students.find(s=>s.id === id)
-    return res.send(JSON.stringify(student))
+    let student = await client.query( `select * from registered where id = $1`,[id] )
+
+    if(student.rowCount === 0) return res.send("Student was not found!")
+    
+    return res.status(200).json(student.rows)
 }
-const registerUser = (req,res) =>{
+
+const registerUser = async (req,res) =>{
     const {name, phone, course} = req.body
-    students.push({
-      id: uuid.v4(),
-      name,
-      phone,
-      course,
-      date: [
-        new Date().getDate(),
-        "/",
-        new Date().getMonth() + 1,
-        "/",
-        new Date().getFullYear(),
-        " ",
-        new Date().getHours()+5,
-        ":",
-        new Date().getMinutes(),
-      ].join(""),
-    });
-    writeFile("registered_students.json", students)
-    return res.send(JSON.stringify("Registereds Successfully"))
+    
+    if(!name || name.length === 0 || !phone || phone.length === 0 || !course || course.length === 0) return res.send("Fill all the inputs!")
+    
+    let response = await client.query(
+      `insert into registered (name,phone,course)values($1,$2,$3)`,[name,phone,course]
+    );
+    if(response.rowCount === 0) return res.status(400).send("Something is wrong!");
+
+    return res.status(200).send("Registered successfully!")
 }
-const deleteStudent = (req, res) => {
+
+const deleteStudent = async (req, res) => {
   const { id } = req.params;
-  students.forEach((s,ind) => {
-      if(s.id === id) students.splice(ind,1)
-  });
-  writeFile("registered_students.json", students)
-  return res.send(JSON.stringify("Removed!"));
+  let student = await client.query(`select * from registered where id = $1`,[id])
+
+  if (student.rowCount === 0) return res.send("Student was not found!");
+
+  await client.query(`delete from registered where id = $1`,[id])
+  
+  return res.status(200).send("Removed!");
 };
 
 module.exports = {

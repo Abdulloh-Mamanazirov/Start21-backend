@@ -1,4 +1,6 @@
 const express = require("express");
+const checkToken = require("../middleware/checkToken")
+
 const {
   allStudents,
   oneStudent,
@@ -9,9 +11,9 @@ const {
 const router = express.Router();
 
 // Students router
-router.get("/all", allStudents);
-router.get("/student/:id", oneStudent);
+router.get("/registered",checkToken, allStudents);
+router.get("/registered/:id",checkToken, oneStudent);
 router.post("/register", registerUser);
-router.delete("/student/:id", deleteStudent);
+router.delete("/registered/:id",checkToken, deleteStudent);
 
 module.exports = { router };
