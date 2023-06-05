@@ -9,7 +9,6 @@ async function getStudents(req, res) {
     );
     res.status(200).json(rows);
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -19,7 +18,6 @@ async function getDeletedStudents(_,res){
     let {rows} = await client.query(`select * from deleted_students`)
     res.status(200).json(rows)
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!")
   }
 }
@@ -43,7 +41,6 @@ async function getGroupStudents(req, res) {
     );
     res.status(200).json(students);
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -67,7 +64,6 @@ async function addStudent(req, res) {
 
     return res.status(200).send("Added successfully!");
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -92,7 +88,6 @@ async function updateStudent(req, res) {
     );
     res.status(200).send("Updated successfully!");
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -111,7 +106,6 @@ async function deleteStudent(req, res) {
     ]);
     res.status(200).send("Deleted!");
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }

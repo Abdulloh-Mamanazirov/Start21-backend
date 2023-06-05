@@ -10,7 +10,6 @@ async function getCourses(req, res) {
     );
     return res.status(200).json(courses.rows);
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -24,7 +23,6 @@ async function getAllCourses(req, res) {
     );
     return res.status(200).json(rows);
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -36,7 +34,6 @@ async function addCourse(req, res) {
     await client.query(`insert into courses(title)values($1)`, [title]);
     res.status(200).send("Created Successfully!");
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -57,7 +54,6 @@ async function updateCourse(req, res) {
     );
     res.status(200).send("Updated successfully!")
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -77,7 +73,6 @@ async function deleteCourse(req, res) {
     );
     res.status(200).send("Deleted!")
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }

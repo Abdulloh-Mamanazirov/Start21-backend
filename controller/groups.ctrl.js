@@ -16,7 +16,6 @@ async function getGroups(req, res) {
     );
     res.status(200).json(rows);
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -33,7 +32,6 @@ async function getOneGroup(req, res) {
     );
     res.status(200).json(rows)
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -48,7 +46,6 @@ async function getTeacherGroups(req, res) {
     );
     res.status(200).json(rows);
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -78,7 +75,6 @@ async function addGroup(req, res) {
 
     return res.status(200).send("Created successfully!");
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -105,7 +101,6 @@ async function updateGroup(req, res) {
     );
     res.status(200).send("Updated successfully!");
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
@@ -125,7 +120,6 @@ async function deleteGroup(req, res) {
     ]);
     res.status(200).send("Deleted!");
   } catch (error) {
-    console.log(error);
     return res.status(400).send("Something went wrong!");
   }
 }
