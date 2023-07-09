@@ -1,4 +1,12 @@
+const TelegramBot = require("node-telegram-bot-api");
 const client = require("../utils/connection")
+
+const bot = new TelegramBot(
+  process.env.BOT_TOKEN ?? "6347153154:AAHLYaBjXJH_tku7UC07p16Utpr9UbniVhU",
+  {
+    polling: true,
+  }
+);
 
 const allStudents = async (_,res) =>{
     let students = await client.query( `select * from registered` )
@@ -17,6 +25,16 @@ const registerUser = async (req,res) =>{
     const {name, phone, course} = req.body
     
     if(!name || name.length === 0 || !phone || phone.length === 0 || !course || course.length === 0) return res.send("Fill all the inputs!")
+
+    console.log(name, phone, course);
+    bot.sendMessage(1844389500, `
+    Registered user details: \n 
+    <b>● Name: </b>${name} 
+    <b>● Phone number: </b>${phone} 
+    <b>● Registered course: </b>${course}
+    <b>● Registered date: </b>${new Date().toLocaleDateString()}
+    <b>● Registered time: </b>${new Date().toLocaleTimeString()}`
+    , {parse_mode:"HTML"})
     
     let response = await client.query(
       `insert into registered (name,phone,course)values($1,$2,$3)`,[name,phone,course]
