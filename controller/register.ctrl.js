@@ -4,7 +4,7 @@ const client = require("../utils/connection")
 const bot = new TelegramBot(
   process.env.BOT_TOKEN ?? "6347153154:AAHLYaBjXJH_tku7UC07p16Utpr9UbniVhU",
   {
-    polling: true,
+    polling: false,
   }
 );
 
@@ -22,11 +22,14 @@ const oneStudent = async (req,res) =>{
 }
 
 const registerUser = async (req,res) =>{
-    const {name, phone, course} = req.body
+    let {name, phone, course} = req.body
+    phone = phone.replaceAll(" ", "")
     
     if(!name || name.length === 0 || !phone || phone.length === 0 || !course || course.length === 0) return res.send("Fill all the inputs!")
+    if (isNaN(phone)) {
+      return res.send("Provide valid phone number");
+    };
 
-    console.log(name, phone, course);
     bot.sendMessage(1844389500, `
     Registered user details: \n 
     <b>● Name: </b>${name} 
