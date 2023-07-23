@@ -21,6 +21,7 @@ app.use(express.json())
 app.use(cors())
 app.use(cookeiPares())
 
+app.get("/api",(_, res)=>res.send("ok"))
 app.use("/api",router)
 app.use("/api",coursesRouter)
 app.use("/api",groupsRouter)
